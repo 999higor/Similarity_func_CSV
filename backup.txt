@@ -1,0 +1,7 @@
+writer.writerow({fieldnames[0]: dado['Quality'],
+                fieldnames[1]: dado['#1 ID'], 
+                fieldnames[2]: dado['#2 ID'], 
+                fieldnames[3]: dado['#1 String'],
+                fieldnames[4]: dado['#2 String'],
+                fieldnames[5]: function.similaridade('Hamming', dado['#1 String'], dado['#2 String'])     
+                })   
