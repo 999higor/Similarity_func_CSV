@@ -117,7 +117,7 @@ def main():
                 
                 })
             
-            if (flag == True):
+            if (flag == True and dado['Quality'] == '1'):
 
                 Hamming = sim00
                 MLIPNS = sim01
@@ -141,7 +141,7 @@ def main():
                 NGram = sim19
                 flag = False
 
-            if (flag == False and dado["Quality"] == 1):
+            if (flag == False and dado["Quality"] == '1'):
 
                 if(sim00 < Hamming):
                     Hamming = sim00
@@ -155,7 +155,7 @@ def main():
                 if(sim03 < Jaro):
                     Jaro = sim03
 
-                if(sim04 < StrCmp95):
+                if(sim04 > StrCmp95):
                     StrCmp95 = sim04
 
                 if(sim05 < Jaccard):
@@ -197,13 +197,35 @@ def main():
                 if(sim17 < NormalizedLevenshtein):
                     NormalizedLevenshtein = sim17
 
-                if(sim18 < MetricLCS):
+                if(sim18 > MetricLCS):
                     MetricLCS = sim18
 
-                if(sim19 < NGram):
+                if(sim19 > NGram):
                     NGram = sim19
+    
+        arq = open('result.txt', 'w')
+        arq.write('Hamming: '+str(Hamming)+'\n')
+        arq.write('MLIPNS: '+str(MLIPNS)+'\n')
+        arq.write('JaroWinkler: '+str(JaroWinkler)+'\n')
+        arq.write('Jaro: '+str(Jaro)+'\n')
+        arq.write('StrCmp95: '+str(StrCmp95)+'\n')
+        arq.write('Jaccard: '+str(Jaccard)+'\n')
+        arq.write('Sorensen: '+str(Sorensen)+'\n')
+        arq.write('Tversky: '+str(Tversky)+'\n')
+        arq.write('Overlap: '+str(Overlap)+'\n')
+        arq.write('Cosine: '+str(Cosine)+'\n')
+        arq.write('RatcliffObershelp: '+str(RatcliffObershelp)+'\n')
+        arq.write('EntropyNCD: '+str(EntropyNCD)+'\n')
+        arq.write('BZ2NCD: '+str(BZ2NCD)+'\n')
+        arq.write('LZMANCD: '+str(LZMANCD)+'\n')
+        arq.write('ZLIBNCD: '+str(ZLIBNCD)+'\n')
+        arq.write('Prefix: '+str(Prefix)+'\n')
+        arq.write('Postfix: '+str(Postfix)+'\n')
+        arq.write('NormalizedLevenshtein: '+str(NormalizedLevenshtein)+'\n')
+        arq.write('MetricLCS: '+str(MetricLCS)+'\n')
+        arq.write('NGram: '+str(NGram)+'\n')
+        arq.close()       
             
-                
                 
             
 
